@@ -6,9 +6,16 @@
 const fs = require("fs"), path = require("path"), cp = require("child_process");
 const root = path.join(__dirname, ".."), tmp = path.join(root, "out", "pages-build");
 cp.execFileSync(process.execPath, [path.join(root, "build.js"), tmp], {env:Object.assign({}, process.env, {TRACKER_NO_FLOW:"1"}), stdio:"inherit"});
+/* The SLT web copy opens on SharePoint, not on "Excel on this computer": on a computer where nothing
+   has been chosen yet, it chooses SharePoint before the app starts, so the first thing shown is the box
+   for the flow link. The new-school set-up wizard is skipped too: the school's settings come from
+   SharePoint. A choice made later (Settings & data) is kept. The copies in SharePoint have the
+   link built in and open on SharePoint already, so they don't need this. */
+const SLT_FIRST_RUN = '<script>try{var k="assessmentTracker.";if(!localStorage.getItem(k+"source")&&!localStorage.getItem(k+"flowUrl")){localStorage.setItem(k+"source","flow");localStorage.setItem(k+"setupDone","1");}}catch(e){}</script>';
 const apps = [
-  {dir:"app", file:"assessment_tracker_V39.html", name:"Assessment Tracker", short:"Tracker"},
-  {dir:"staff", file:"assessment_tracker_staff_entry_V39.html", name:"Staff entry", short:"Staff entry"}
+  {dir:"app", file:"assessment_tracker_V39.html", name:"Assessment Tracker", short:"Tracker", head:SLT_FIRST_RUN,
+   text:[["(ask SLT for it)", "(it\u2019s the HTTP URL in the first step of the TrackerAPI flow in Power Automate)"]]},
+  {dir:"staff", file:"assessment_tracker_staff_entry_V39.html", name:"Staff entry", short:"Staff entry", head:"", text:[]}
 ];
 apps.forEach(function(a){
   let html = fs.readFileSync(path.join(tmp, a.file), "utf8");
@@ -17,7 +24,11 @@ apps.forEach(function(a){
   const head = '</title>\n<link rel="manifest" href="manifest.webmanifest">\n<meta name="theme-color" content="#0B6B58">\n' +
     '<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">\n<link rel="apple-touch-icon" href="../assets/icon-180.png">\n<meta name="apple-mobile-web-app-title" content="' + a.short + '">';
   if(html.indexOf("</title>") < 0) throw new Error("no </title>");
-  html = html.replace("</title>", function(){ return head; });
+  html = html.replace("</title>", function(){ return head + (a.head ? "\n" + a.head : ""); });
+  a.text.forEach(function(t){
+    if(html.split(t[0]).length !== 2) throw new Error(a.file + ": expected exactly one " + t[0]);
+    html = html.replace(t[0], function(){ return t[1]; });
+  });
   fs.mkdirSync(path.join(root, a.dir), {recursive:true});
   fs.writeFileSync(path.join(root, a.dir, "index.html"), html);
   fs.writeFileSync(path.join(root, a.dir, "manifest.webmanifest"), JSON.stringify({

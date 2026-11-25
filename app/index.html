@@ -9,6 +9,7 @@
 <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/icon-180.png">
 <meta name="apple-mobile-web-app-title" content="Tracker">
+<script>try{var k="assessmentTracker.";if(!localStorage.getItem(k+"source")&&!localStorage.getItem(k+"flowUrl")){localStorage.setItem(k+"source","flow");localStorage.setItem(k+"setupDone","1");}}catch(e){}</script>
 <style>
 /* V27 — Microsoft (Fluent 2) style shell. Colours are tokens: change --brand
    to re-theme the whole app (e.g. #c8102e for the school red). */
@@ -16284,7 +16285,7 @@ function startLoad(){
   if(!hasSheet()){
     /* no sheet link yet: still usable, but only this browser holds the work */
     state = (local && local.state) || starterState();
-    banner("warn2", '<div style="flex:1;min-width:280px"><strong>Connect this computer to SharePoint.</strong> The flow link is no longer built into the file, so each computer pastes it once (ask SLT for it). ' +
+    banner("warn2", '<div style="flex:1;min-width:280px"><strong>Connect this computer to SharePoint.</strong> The flow link is no longer built into the file, so each computer pastes it once (it’s the HTTP URL in the first step of the TrackerAPI flow in Power Automate). ' +
       'Until then, nothing is read from or saved to SharePoint.<div class="row" style="margin:8px 0 0"><input id="bannerFlow" placeholder="TrackerAPI flow link, https://…" autocomplete="off" style="flex:1;min-width:240px"><button class="btn sm" data-act="banner-connect">Connect</button><button class="btn ghost sm noentry" data-act="use-local-excel">Use Local Excel instead</button></div></div>')
     finishBoot();
     return;
