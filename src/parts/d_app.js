@@ -302,7 +302,7 @@ function starterState(){
 /* A blank copy for another school gets its own COPY_ID, so its browser storage never mixes with this one's. */
 const COPY_ID = "";
 const APP_VERSION = 41;
-const APP_BUILD = "42.2";
+const APP_BUILD = "42.3";
 /* builds compare as numbers: 40.10 is newer than 40.9 */
 function buildNum(v){ const m = String(v || "").match(/^(\d+)(?:\.(\d+))?/); return m ? (+m[1]) * 1000 + (+(m[2] || 0)) : 0; }
 let appBuildSeen = "";     /* the newest build that has saved to SharePoint */
@@ -319,6 +319,11 @@ function showOldCopy(){
     addBanner("bad", '<div id="oldCopyBanner"><strong>This is an older copy (V' + esc(APP_BUILD) + ').</strong> V' + esc(appBuildSeen) + ' has been used since, so this copy won\u2019t save: it could undo newer work. Close it and open the tracker from the <strong>SLT dashboards</strong> folder.</div>');
 }
 /* ===== CHANGELOG =====
+   V42.3 (code review of V42.1-V42.2)
+   - Subjects that aren't GCSE subjects (PSHE and the like) keep Year 10+ pupils on Enter levels,
+     and their My classes cards and links no longer open another subject's GCSE page.
+   - Enter and the arrow keys move past a pupil whose BTEC grade is entered instead of a level.
+   - The drop export can't run in Staff entry.
    V42.2
    - GCSE is entered on the Qualifications page: one "GCSE <subject>" for each GCSE subject (plus all
      subjects at once), with grade now, target and exam result, U-9. It reads and writes the grades
@@ -818,12 +823,19 @@ function qualInScope(q){ return !ENTRY_MODE || !!(entryScopeIds && entryScopeIds
    Evidence for Learning or a spreadsheet shows here as it is, and every other page reads it as before.
    Enter levels is for levels (FLS, 1E-9S). */
 function gcseEntryName(su){ return /\bGCSE\b/i.test(su.name || "") ? su.name : "GCSE " + su.name; }
+/* the subjects with a GCSE page on Qualifications: ticked as GCSE subjects, or already holding GCSE
+   grades. Other subjects (PSHE and the like) keep their Year 10+ pupils on Enter levels. */
+function gcsePageSubjects(){
+  const out = {};
+  (state.curResults || []).forEach(function(r){ if((r.kind === "predicted" || r.kind === "actual" || r.kind === "target") && r.value !== "" && r.value != null) out[r.subjectId] = true; });
+  (state.subjects || []).forEach(function(su){ if(isGcseSubject(su)) out[su.id] = true; });
+  return out;
+}
 function gcseEntryItems(dp){
   if(!dp || !state) return [];
-  const ay = acYearOf(dp.date) || currentAY(), withData = {};
-  (state.curResults || []).forEach(function(r){ if((r.kind === "predicted" || r.kind === "actual" || r.kind === "target") && r.value !== "" && r.value != null) withData[r.subjectId] = true; });
+  const ay = acYearOf(dp.date) || currentAY(), gPage = gcsePageSubjects();
   const out = (state.subjects || []).filter(function(su){
-    if(!su.active || !(isGcseSubject(su) || withData[su.id])) return false;
+    if(!su.active || !gPage[su.id]) return false;
     return state.pupils.some(function(p){ return takesSubject(p, su, ay) && usesGcse(p, ay, su.id); });
   }).map(function(su){ return {id:"gcse:" + su.id, su:su, name:gcseEntryName(su)}; });
   out.sort(function(a, b){ return a.name.localeCompare(b.name); });
@@ -10494,6 +10506,7 @@ function exportCurCsv(kindFilter){
    grade, or where they are on a qualification that stands in for the subject), the previous result
    and the progress since it */
 function exportDropCsv(dpId){
+  if(ENTRY_MODE) return;
   const dp = byId(state.settings.dataPoints, dpId);
   if(!dp){ toast("Choose a data drop first.", ""); return; }
   const ay = acYearOf(dp.date) || currentAY(), idx = curIndex(), dps = orderedDataPoints(), pos = dps.findIndex(function(d){ return d.id === dp.id; });
@@ -10788,7 +10801,7 @@ function renderStaffArea(){
 }
 /* jump from a class card into level entry, filtered */
 function staffGo(spec){
-  if(spec.k && spec.k !== "level"){ gcseGo(spec.s, spec.d, spec.y, spec.g); return; }      /* V42.2 */
+  if(spec.k && spec.k !== "level" && gcsePageSubjects()[spec.s]){ gcseGo(spec.s, spec.d, spec.y, spec.g); return; }      /* V42.2: GCSE classes open their GCSE page; other subjects stay on levels */
   switchTab("curentry");
   const set = function(id, v){ const el = document.getElementById(id); if(el && v!=null){ if(!Array.prototype.some.call(el.options||[], function(o){ return o.value===v; }) && el.tagName==="SELECT") return; el.value = v; } };
   document.getElementById("ceMode").value = "list";
@@ -12263,7 +12276,8 @@ function renderCurEntry(){
   const allYrs = document.getElementById("ceAllYears").checked;
   /* does this pupil enter this kind in this subject? levels before GCSE grading, grades after */
   const mayEnter = function(p, s){ const P = ENTRY_MODE && entryScopeIds && entryScopeIds.pairs; return !P || !!(P[p.id] && P[p.id][s.id]); };
-  const fits = function(p, s){ return mayEnter(p, s) && takesSubject(p, s, ay) && (kind!=="level" ? usesGcse(p, ay, s.id) : (!usesGcse(p, ay, s.id) || allYrs)); };
+  const gPage = gcsePageSubjects();       /* V42.2 review: a subject with no GCSE page keeps everyone on levels */
+  const fits = function(p, s){ return mayEnter(p, s) && takesSubject(p, s, ay) && (kind!=="level" ? usesGcse(p, ay, s.id) : (!usesGcse(p, ay, s.id) || allYrs || !gPage[s.id])); };
   const colSubs = grid ? subs.filter(function(s){ return pupils.some(function(p){ return fits(p, s); }); }) : [su];
   pupils = pupils.filter(function(p){ return colSubs.some(function(s){ return fits(p, s); }); });
   /* on a qualification that replaces the level here: a qualification grade, for "level" and "GCSE grade now" */
@@ -12280,7 +12294,7 @@ function renderCurEntry(){
   const seenG = {};
   const gcseHere = kind==="level" && !allYrs ? state.pupils.filter(function(p){
     if(seenG[p.id]) return false; seenG[p.id] = true;
-    return (!ySel.value || String(p.year)===ySel.value) && (!gSel.value || p.group===gSel.value) && (grid ? subs : [su]).some(function(s){ return mayEnter(p, s) && takesSubject(p, s, ay) && usesGcse(p, ay, s.id); });
+    return (!ySel.value || String(p.year)===ySel.value) && (!gSel.value || p.group===gSel.value) && (grid ? subs : [su]).some(function(s){ return gPage[s.id] && mayEnter(p, s) && takesSubject(p, s, ay) && usesGcse(p, ay, s.id); });
   }).length : 0;
   const gcseGoBtn = '<button class="linkbtn" data-gcse-go="'+(grid ? '*' : su.id)+'">enter their GCSE grades under Qualifications</button>';
   if(!pupils.length){
@@ -12520,9 +12534,15 @@ function commitCurInput(el){
   return true;
 }
 function ceMove(el, dr, dc){
-  const r = parseInt(el.getAttribute("data-row"),10) + dr, c = parseInt(el.getAttribute("data-col"),10) + dc;
-  const nx = ((el.closest && el.closest("#ceTable, #qeTable")) || document.getElementById("ceTable")).querySelector('.lvlin[data-row="'+r+'"][data-col="'+c+'"]');
-  if(nx){ nx.focus(); nx.select(); }
+  const host = (el.closest && el.closest("#ceTable, #qeTable")) || document.getElementById("ceTable");
+  let r = parseInt(el.getAttribute("data-row"),10) + dr;
+  const c = parseInt(el.getAttribute("data-col"),10) + dc, last = host.querySelectorAll("tr").length;
+  /* V42.2 review: carry on past a row with no box here (a pupil whose BTEC grade is entered instead) */
+  for(; r >= 0 && r <= last; r += dr){
+    const nx = host.querySelector('.lvlin[data-row="'+r+'"][data-col="'+c+'"]');
+    if(nx){ nx.focus(); nx.select(); return; }
+    if(!dr) return;
+  }
 }
 function cePaste(el, text){
   const rows = String(text||"").replace(/\r/g, "").replace(/\n+$/, "").split("\n").map(function(l){ return l.split("\t"); });

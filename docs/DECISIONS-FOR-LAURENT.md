@@ -76,7 +76,8 @@ These are the choices I made on your behalf overnight. Each one took the safer o
     - "Previous" is the pupil's most recent earlier result, even if they missed the drop just before.
     - Progress counts level steps (FLS steps count too) or whole GCSE grades.
     - With nothing earlier, progress is left blank rather than shown as "No change".
-24. **Tests use a made-up school only.** About 150 invented pupils, 20 staff and 15 subjects, with three years of drops and BTEC pupils. No real data was used or saved anywhere, including memory.
+24. **Subjects without a GCSE page (V42.3).** For a subject that isn't ticked as GCSE and has no GCSE grades saved (PSHE, say), pupils in Years 10+ are entered as levels on **Enter levels**, the same as younger pupils. To give a subject a GCSE page, tick it as a GCSE subject in Settings & data → Curriculum.
+25. **Tests use a made-up school only.** About 150 invented pupils, 20 staff and 15 subjects, with three years of drops and BTEC pupils. No real data was used or saved anywhere, including memory.
 
 ## If you'd prefer otherwise
 

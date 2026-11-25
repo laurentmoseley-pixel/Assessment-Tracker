@@ -1,4 +1,4 @@
-# 12-minute check before staff use V42.2
+# 12-minute check before staff use V42.3
 
 You need:
 - the SLT tracker on your laptop
@@ -14,7 +14,7 @@ Every change below is small and you undo it at the end.
 
 1. Copy both new files into **SLT dashboards** and choose **Replace**. Do the same for the Staff entry file in its own folder.
 2. Open the SLT tracker and enter the passphrase.
-   - The menu should say **V42.2**.
+   - The menu should say **V42.3**.
 3. Watch the save chip at the top.
    - It may say **Waiting to send…** for a few seconds the first time. That's the one-time repairs from V42.0 onwards.
    - It should then say **Saved**.
@@ -82,6 +82,7 @@ Every change below is small and you undo it at the end.
    - The status should update against their target.
 3. Go to **Enter data → Levels**, choose English and Year 11.
    - There should be no GCSE boxes, and there should be a link to **enter their GCSE grades under Qualifications**.
+   - Now choose PSHE (or another subject that isn't a GCSE) and Year 11. The pupils should be listed with level boxes.
 4. Open a Year 10 or 11 pupil who did Key Stage 3 levels.
    - Their **Qualifications** section should list their GCSEs.
    - Under **Curriculum statements**, the subject should show their GCSE grade first, with Key Stage 3 marked *before GCSE*.
@@ -100,14 +101,14 @@ Wait for **Saved**.
 
 ## If anything fails
 
-Don't give V42.2 to staff. Send me the step number and a screenshot, including the chip and any message.
+Don't give V42.3 to staff. Send me the step number and a screenshot, including the chip and any message.
 
 **Going back to V41.26:**
 
 1. Put your backup files back in place.
-2. Old copies lock once V42.2 has saved. To unlock them:
+2. Old copies lock once V42.3 has saved. To unlock them:
    1. In SharePoint, open the **Settings** list.
    2. Find the item whose SettingKey is **appBuild**.
-   3. Change its SettingValue from `42.2` to `41.26` (or `42.1` to go back only one version).
+   3. Change its SettingValue from `42.3` to `41.26` (or `42.2` to go back only one version).
 
-V42.2 keeps all data in the same lists and columns, so V41.26 and V42.1 read everything V42.2 saved. In those versions, GCSE grades are back on Enter levels. It ignores the extra class-list check.
+V42.3 keeps all data in the same lists and columns, so V41.26, V42.1 and V42.2 read everything V42.3 saved. In those versions, GCSE grades are back on Enter levels. It ignores the extra class-list check.

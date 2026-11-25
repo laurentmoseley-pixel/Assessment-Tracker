@@ -252,6 +252,60 @@ test("export for one data drop: level, GCSE grade or qualification status, previ
   t.close();
 });
 
+test("review: a subject that isn't GCSE (PSHE) keeps Year 10+ pupils on Enter levels, and its links stay on it", async () => {
+  const site = await E.seededSite();
+  const t = await E.openSlt(site.sp);
+  const r = JSON.parse(t.ev(`(function(){
+    const out = {items:gcseEntryItems(byId(state.settings.dataPoints, "dp_2026_1")).map(function(g){ return g.id; })};
+    staffGo({s:"${SU("PSHE")}", d:"dp_2026_1", y:"10", g:"", k:"predicted"});
+    out.tab = activeTab; out.sub = fieldVal("ceSubject");
+    out.boxes = document.querySelectorAll('#ceTable .lvlin[data-sid="${SU("PSHE")}"]').length;
+    out.ks4 = Array.prototype.filter.call(document.querySelectorAll('#ceTable .lvlin[data-sid="${SU("PSHE")}"]'), function(b){ return usesGcse(byId(state.pupils, b.getAttribute("data-pid")), currentAY(), "${SU("PSHE")}"); }).length;
+    out.link = !!document.querySelector("#ceTable [data-gcse-go]");
+    /* a GCSE subject still points its Year 11 pupils to GCSE */
+    document.getElementById("ceSubject").value = "${SU("Maths")}"; document.getElementById("ceYear").value = "11"; renderCurEntry();
+    out.mathsLink = !!document.querySelector("#ceTable [data-gcse-go]");
+    staffGo({s:"${SU("Maths")}", d:"dp_2026_1", y:"11", g:"", k:"predicted"});
+    out.mathsTab = activeTab; out.mathsQual = fieldVal("qeQual");
+    return JSON.stringify(out);
+  })()`));
+  assert.ok(r.items.indexOf("gcse:" + SU("PSHE")) < 0, "no GCSE PSHE page");
+  assert.strictEqual(r.tab, "curentry", "the PSHE card opens Enter levels");
+  assert.strictEqual(r.sub, SU("PSHE"));
+  assert.ok(r.boxes > 0 && r.ks4 > 0, "Year 10 PSHE pupils have level boxes (" + r.ks4 + ")");
+  assert.strictEqual(r.link, false, "no link to a GCSE page that doesn't exist");
+  assert.strictEqual(r.mathsLink, true, "Maths Year 11 still points to GCSE");
+  assert.strictEqual(r.mathsTab, "qualentry"); assert.strictEqual(r.mathsQual, "gcse:" + SU("Maths"));
+  t.close();
+});
+
+test("review: Enter moves past a pupil whose BTEC grade is entered instead", async () => {
+  const site = await E.seededSite();
+  const t = await E.openSlt(site.sp);
+  const r = JSON.parse(t.ev(`(function(){
+    gcseGo("${SU("Science")}", "dp_2026_1", "", "");
+    const rows = Array.prototype.slice.call(document.querySelectorAll("#qeTable tbody tr"));
+    const i = rows.findIndex(function(tr, k){ return tr.querySelector('.lvlin[data-ctx^="predicted|"]') && rows[k + 1] && !rows[k + 1].querySelector(".lvlin"); });
+    if(i < 0) return JSON.stringify({none:true});
+    const el = rows[i].querySelector('.lvlin[data-ctx^="predicted|"]'); el.focus(); ceMove(el, 1, 0);
+    const next = rows.slice(i + 1).map(function(tr){ return tr.querySelector('.lvlin[data-ctx^="predicted|"]'); }).filter(Boolean)[0];
+    const a = document.activeElement;
+    return JSON.stringify({from:el.getAttribute("data-row"), to:a.getAttribute("data-row"), want:next ? next.getAttribute("data-row") : null, sameCol:a.getAttribute("data-ctx").split("|")[0]});
+  })()`));
+  assert.ok(!r.none, "a BTEC pupil sits between two GCSE pupils");
+  assert.strictEqual(r.to, r.want, "moved to the next box down (" + r.from + " -> " + r.to + ")");
+  assert.strictEqual(r.sameCol, "predicted", "same column");
+  t.close();
+});
+
+test("review: the drop export doesn't run in Staff entry", async () => {
+  const site = await E.seededSite();
+  const t = await E.openStaff(site.sp, "st_107");
+  const r = t.ev(`(function(){ let got = null; const keep = downloadBlob; downloadBlob = function(n){ got = n; }; try { exportDropCsv("dp_2026_1"); } finally { downloadBlob = keep; } return String(got); })()`);
+  assert.strictEqual(r, "null", "nothing downloaded");
+  t.close();
+});
+
 (async () => {
   const filter = process.argv[2] ? new RegExp(process.argv[2], "i") : null;
   let pass = 0, fail = 0;

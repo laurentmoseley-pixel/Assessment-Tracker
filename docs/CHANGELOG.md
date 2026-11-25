@@ -1,4 +1,10 @@
-# Assessment Tracker and Staff entry: V42.2
+# Assessment Tracker and Staff entry: V42.3
+
+## V42.3 (25 November 2026, from a code review of V42.1 and V42.2)
+
+- **Subjects that aren't GCSE subjects, such as PSHE, work again in Years 10 and up.** In V42.2, Enter levels listed nobody for these classes, and their **My classes** card and the "enter their GCSE grades" link opened another subject's GCSE page. Now Year 10+ pupils in a subject without a GCSE page stay on **Enter levels**. GCSE subjects still go to Qualifications.
+- **Enter and the arrow keys carry on past a pupil whose BTEC grade is entered in place of a level.** Before, the cursor stopped at the row above them.
+- **The drop export can't be run from Staff entry**, which keeps nothing on the computer by design.
 
 ## V42.2 (25 November 2026)
 
