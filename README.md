@@ -3,6 +3,8 @@
 The SLT tracker and the Staff entry file, built from one source, with the test harness and the
 release notes. Current version: **V42.2**.
 
+Front page: **https://laurentmoseley-pixel.github.io/Assessment-Tracker/** (`index.html` and `assets/`, served by GitHub Pages from `main`, root). It describes the tracker; the tracker itself isn't hosted there.
+
 There's no pupil data here. The tests use a made-up school. The real data lives in SharePoint and
 is reached through the TrackerAPI Power Automate flow.
 
