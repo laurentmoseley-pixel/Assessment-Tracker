@@ -16,6 +16,7 @@
   <div class="wrap">
     <a class="brand" href="./"><span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>Assessment Tracker</a>
     <nav aria-label="Site">
+      <a href="#open">Open it</a>
       <a href="#enter">Enter</a>
       <a href="#progress">Progress</a>
       <a href="#staff">Staff entry</a>
@@ -33,10 +34,10 @@
       <h1>Every pupil's progress, in one file.</h1>
       <p class="lede">Levels from FLS to 9S, GCSE grades, BTEC and other qualifications, curriculum statements and assessments, for senior leaders and teachers. It runs in the browser and keeps the data in the school's own SharePoint.</p>
       <div class="btns">
-        <a class="btn primary" href="#new">What's new in V42.2</a>
-        <a class="btn" href="https://github.com/laurentmoseley-pixel/Assessment-Tracker">The code on GitHub</a>
+        <a class="btn primary" href="app/">Open the tracker</a>
+        <a class="btn" href="staff/">Open Staff entry</a>
       </div>
-      <p class="note">This site describes the tracker. It holds no pupil data, and the tracker itself isn't hosted here.</p>
+      <p class="note">The first time on each computer, paste the school's flow link and enter the passphrase. There's no pupil data on this site: everything stays in the school's SharePoint.</p>
     </div>
     <div class="card" role="img" aria-label="An example pupil page for a made-up Year 11 pupil. GCSE English went from 4 to 5 against a target of 5, on track. GCSE Maths went from 3 to 4 against a target of 5, behind. BTEC Applied Science went from Started to On track. Curriculum statements suggest grade 5, with next steps from grade 6.">
       <div aria-hidden="true">
@@ -53,6 +54,24 @@
         </table>
         <div class="next"><b>English statements: grade 5 now</b>Next steps from grade 6:<ul><li>Compare how two writers present a theme</li><li>Shape a longer piece for its reader</li></ul></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="open" aria-labelledby="h-open">
+  <div class="wrap">
+    <h2 id="h-open">Open it</h2>
+    <div class="body cols">
+      <ol class="steps">
+        <li><div><b>Open the link</b><p><a href="app/">The tracker</a> for senior leaders, or <a href="staff/">Staff entry</a> for teachers.</p></div></li>
+        <li><div><b>First time only: paste the flow link</b><p>Senior leaders have it. It stays in that browser, so you won't be asked again on that computer.</p></div></li>
+        <li><div><b>Enter the passphrase</b><p>The staff passphrase for Staff entry, the SLT one for the tracker. Teachers then choose their name.</p></div></li>
+      </ol>
+      <ul class="list">
+        <li><b>Install it as an app</b>In Edge, choose <strong>⋯ → Apps → Install this site as an app</strong>. In Chrome, use the install icon in the address bar. It opens in its own window, with an icon in the Start menu or Dock.</li>
+        <li><b>On an iPad</b>In Safari, tap Share, then <strong>Add to Home Screen</strong>.</li>
+        <li><b>Always the latest version</b>Updates arrive by themselves the next time it's opened. There's nothing to download or copy into SharePoint.</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -107,10 +126,10 @@
     <div class="body">
       <ul class="list facts">
         <li><b>Kept in the school's SharePoint</b>The tracker reads and writes the school's own SharePoint lists through the school's own Power Automate flow. Every request needs a passphrase.</li>
-        <li><b>Nothing on GitHub</b>This repository holds code and documents only. The flow's link is kept out of it, and the tests use a made-up school.</li>
+        <li><b>Nothing on GitHub</b>This site and its repository hold code and documents only. The tracker runs in your browser and talks straight to the school's flow, so no data passes through GitHub. The flow's link is kept out, and the tests use a made-up school.</li>
         <li><b>Safe when two people work at once</b>Only the fields that changed are sent, and colleagues' sign-offs are merged rather than overwritten. A dropped connection loses nothing.</li>
       </ul>
-      <p class="warn">The tracker is made for one school's set-up: its SharePoint lists and its Power Automate flow. It isn't a hosted service, and there's nothing to sign up to.</p>
+      <p class="warn">The tracker is made for one school's set-up: its SharePoint lists and its Power Automate flow. Without the school's flow link and passphrase it opens, but it can't reach any data.</p>
     </div>
   </div>
 </section>
@@ -123,6 +142,7 @@
         <li><div><b>Add the flow link on your computer</b><p>Put it in <code>flow-url.txt</code> next to <code>build.js</code>. Git ignores this file, so the link never reaches GitHub.</p></div></li>
         <li><div><b>Build both files</b><p><code>node build.js out/release</code> makes the SLT tracker and the Staff entry file from one source.</p></div></li>
         <li><div><b>Put them in SharePoint</b><p>Replace both files in the school's dashboards folder. The in-school check takes about 12 minutes.</p></div></li>
+        <li><div><b>Update the web version</b><p><code>node tools/build-pages.js</code> rebuilds <code>app/</code> and <code>staff/</code>, always without the flow link. Commit and push, and GitHub Pages serves it.</p></div></li>
       </ol>
     </div>
   </div>

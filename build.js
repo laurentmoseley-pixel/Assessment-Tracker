@@ -23,7 +23,8 @@ const text = {}; parts.forEach(function(p){ text[p] = fs.readFileSync(path.join(
    TRACKER_FLOW_URL. --fake-flow puts in a made-up link, for the tests only. With none, the files ask
    each computer to paste the link once (Set up -> Settings & data), as the app always allowed. */
 let flow = "", flowFrom = "none: each computer pastes the link once";
-if(FAKE){ flow = "https://fake.environment.api.powerplatform.com/tests-only"; flowFrom = "made-up, for the tests only: don't give these files to anyone"; }
+if(process.env.TRACKER_NO_FLOW){ flowFrom = "left out on purpose (web version)"; }
+else if(FAKE){ flow = "https://fake.environment.api.powerplatform.com/tests-only"; flowFrom = "made-up, for the tests only: don't give these files to anyone"; }
 else if(process.env.TRACKER_FLOW_URL){ flow = process.env.TRACKER_FLOW_URL.trim(); flowFrom = "built in from TRACKER_FLOW_URL"; }
 else if(fs.existsSync(path.join(root, "flow-url.txt"))){ flow = fs.readFileSync(path.join(root, "flow-url.txt"), "utf8").trim(); flowFrom = "built in from flow-url.txt"; }
 if(flow){
