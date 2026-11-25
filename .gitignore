@@ -1,0 +1,8 @@
+# the Power Automate link holds the flow's key: it stays on your computer
+flow-url.txt
+.env
+
+# built files (the release build has the link in it) and test output
+out/
+node_modules
+*.zip

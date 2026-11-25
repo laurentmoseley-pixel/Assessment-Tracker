@@ -1,0 +1,22 @@
+"use strict";
+process.env.TZ = "Europe/London";
+const fs = require("fs"), path = require("path"), http = require("http");
+const {chromium} = require("playwright-core");
+const E = require("./env");
+(async () => {
+  const site = await E.seededSite();
+  const root = path.resolve(__dirname, "../out/current");
+  const srv = await new Promise((res) => { const s = http.createServer((q, r) => { const f = path.join(root, q.url.split("?")[0]); r.writeHead(200, {"content-type":"text/html"}); fs.createReadStream(f).pipe(r); }).listen(0, "127.0.0.1", () => res(s)); });
+  const browser = await chromium.launch({executablePath:"/usr/bin/google-chrome", args:["--no-sandbox"]});
+  const ctx = await browser.newContext();
+  const flow = E.flowFor(site.sp);
+  await ctx.route("**/*", async (route) => { const u = route.request().url(); if(u.startsWith("http://127.0.0.1")) return route.continue(); const r = await flow.fetch(u, {body:route.request().postData()}); return route.fulfill({status:r.status, contentType:"application/json", body:await r.text()}); });
+  await ctx.addInitScript(() => { localStorage.setItem("assessmentTracker.flowPass", "test-pass"); localStorage.setItem("assessmentTracker.source", "flow"); localStorage.setItem("assessmentTracker.setupDone", "1"); localStorage.setItem("assessmentTracker.toured", "1"); });
+  const url = "http://127.0.0.1:" + srv.address().port + "/assessment_tracker_V39.html";
+  const p1 = await ctx.newPage(); await p1.goto(url); await p1.waitForFunction(() => window.eval("sheetReady === true"), null, {timeout:60000});
+  const p2 = await ctx.newPage(); await p2.goto(url); await p2.waitForFunction(() => window.eval("sheetReady === true"), null, {timeout:60000});
+  await p2.waitForTimeout(800);
+  const warned = await p2.evaluate(() => !!document.getElementById("twoTabs"));
+  console.log(warned ? "PASS  a second tab is warned" : "FAIL  no warning in the second tab");
+  await browser.close(); srv.close(); process.exit(warned ? 0 : 1);
+})().catch((e) => { console.error(e); process.exit(1); });

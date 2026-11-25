@@ -1,0 +1,28 @@
+"use strict";
+process.env.TZ = "Europe/London";
+const fs = require("fs"), path = require("path"), http = require("http");
+const {chromium} = require("playwright-core");
+const E = require("/home/claude/work/harness/env");
+(async () => {
+  const site = await E.seededSite();
+  const root = path.resolve(__dirname, "../out/current");
+  const srv = await new Promise((res) => { const s = http.createServer((q, r) => { const f = path.join(root, q.url.split("?")[0]); r.writeHead(200, {"content-type":"text/html"}); fs.createReadStream(f).pipe(r); }).listen(0, "127.0.0.1", () => res(s)); });
+  const browser = await chromium.launch({executablePath:"/usr/bin/google-chrome", args:["--no-sandbox"]});
+  const ctx = await browser.newContext({viewport:{width:1366, height:768}});
+  const flow = E.flowFor(site.sp);
+  await ctx.route("**/*", async (route) => { const u = route.request().url(); if(u.startsWith("http://127.0.0.1")) return route.continue(); const r = await flow.fetch(u, {body:route.request().postData()}); return route.fulfill({status:r.status, contentType:"application/json", body:await r.text()}); });
+  await ctx.addInitScript(() => { localStorage.setItem("assessmentTracker.staffentry.flowPass", "staff-pass"); localStorage.setItem("assessmentTracker.staffentry.staffId", "st_104"); });
+  const pg = await ctx.newPage(); const errs = []; pg.on("pageerror", (e) => errs.push(e.message));
+  await pg.goto("http://127.0.0.1:" + srv.address().port + "/assessment_tracker_staff_entry_V39.html");
+  await pg.waitForFunction(() => window.eval("sheetReady === true"), null, {timeout:60000});
+  await pg.waitForSelector("#ceTable .lvlin");
+  await pg.click('#ceTable .lvlin[data-row="0"]'); await pg.keyboard.type("FLS10"); await pg.keyboard.press("Enter");
+  await pg.keyboard.type("fls3"); await pg.keyboard.press("Enter");
+  await pg.waitForFunction(() => !window.eval("dirty") && !window.eval("autoInFlight"), null, {timeout:30000});
+  const vals = await pg.$$eval("#ceTable .lvlin", (a) => a.slice(0, 2).map((x) => x.value));
+  const fits = await pg.$eval('#ceTable .lvlin[data-row="0"]', (el) => el.scrollWidth <= el.clientWidth + 1);
+  await pg.screenshot({path:path.resolve(__dirname, "../out/fls.png"), clip:{x:0, y:150, width:1366, height:400}});
+  const inSp = site.sp.lists.CurriculumResults.filter((x) => x.DataDropId === "dp_2026_1" && /^FLS(10|3)$/.test(x.CurValue)).map((x) => x.CurValue);
+  console.log(JSON.stringify({typed:vals, fitsInBox:fits, inSharePoint:inSp, errors:errs}));
+  await browser.close(); srv.close(); process.exit(0);
+})().catch((e) => { console.error(e); process.exit(1); });

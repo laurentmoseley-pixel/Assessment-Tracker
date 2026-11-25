@@ -1,0 +1,787 @@
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_ApprovalStatus msdt:dt="string">0</mso:_ApprovalStatus>
+<mso:_ApprovalAssignedTo msdt:dt="string"></mso:_ApprovalAssignedTo>
+<mso:_ApprovalRespondedBy msdt:dt="string"></mso:_ApprovalRespondedBy>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body class="loading">
+<a href="#main" class="skiplink">Skip to the page</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-waffle" viewBox="0 0 20 20"><g fill="currentColor" stroke="none"><circle cx="4" cy="4" r="1.5"/><circle cx="10" cy="4" r="1.5"/><circle cx="16" cy="4" r="1.5"/><circle cx="4" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="16" cy="10" r="1.5"/><circle cx="4" cy="16" r="1.5"/><circle cx="10" cy="16" r="1.5"/><circle cx="16" cy="16" r="1.5"/></g></symbol>
+  <symbol id="i-home" viewBox="0 0 20 20"><path d="M3 8.5 10 3l7 5.5V16a1 1 0 0 1-1 1h-3.5v-5h-5v5H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-compare" viewBox="0 0 20 20"><path d="M4 15V9M8 15V5M12 15v-4M16 15V7M2.5 17.5h15"/></symbol>
+  <symbol id="i-missing" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" stroke-dasharray="2.6 2.2"/><path d="M10 6.5v4.2M10 13.4v.1"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 20 20"><path d="M4.5 17.5V3.5M4.5 4h10l-2.2 3.5L14.5 11h-10"/></symbol>
+  <symbol id="i-person" viewBox="0 0 20 20"><circle cx="10" cy="6.5" r="3.3"/><path d="M3.8 17c.6-3.3 3.1-5 6.2-5s5.6 1.7 6.2 5"/></symbol>
+  <symbol id="i-people" viewBox="0 0 20 20"><circle cx="7.5" cy="7" r="2.8"/><path d="M2.5 16.5c.5-2.8 2.5-4.3 5-4.3s4.5 1.5 5 4.3"/><circle cx="14" cy="6.5" r="2.2"/><path d="M13.5 11.3c2.2 0 3.7 1.3 4.1 3.7"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 20 20"><path d="M12.8 3.7 16.3 7.2 7 16.5l-4 1 1-4z"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 20 20"><rect x="4" y="3.5" width="12" height="14" rx="1.5"/><path d="M7.5 3.5V2.5h5v1M7 8h6M7 11h6M7 14h3.5"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 20 20"><circle cx="10" cy="10" r="2.6"/><path d="M10 2.5v2M10 15.5v2M2.5 10h2M15.5 10h2M4.7 4.7l1.4 1.4M13.9 13.9l1.4 1.4M4.7 15.3l1.4-1.4M13.9 6.1l1.4-1.4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5"/><path d="m12.3 12.3 4.7 4.7"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 20 20"><path d="M3 5.5h14M3 10h14M3 14.5h14"/></symbol>
+  <symbol id="i-close" viewBox="0 0 20 20"><path d="m5 5 10 10M15 5 5 15"/></symbol>
+  <symbol id="i-add" viewBox="0 0 20 20"><path d="M10 4v12M4 10h12"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 20 20"><rect x="6.5" y="6.5" width="10" height="10" rx="1.5"/><path d="M13.5 6.5V4.5a1 1 0 0 0-1-1h-8a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2"/></symbol>
+  <symbol id="i-delete" viewBox="0 0 20 20"><path d="M4 5.5h12M8 5.5V4h4v1.5M5.5 5.5l.8 11h7.4l.8-11"/></symbol>
+  <symbol id="i-print" viewBox="0 0 20 20"><path d="M6 7V3h8v4M6 14H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-2"/><rect x="6" y="11.5" width="8" height="5.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 20 20"><path d="M10 3v10M6 9l4 4 4-4M4 16.5h12"/></symbol>
+  <symbol id="i-save" viewBox="0 0 20 20"><path d="M4 3.5h9.5l2.5 2.5v10.5H4z"/><path d="M7 3.5v4h6v-4M7 16.5v-5h6v5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 20 20"><path d="M3.5 4.5c2-1 4.5-1 6.5.5 2-1.5 4.5-1.5 6.5-.5v11c-2-1-4.5-1-6.5.5-2-1.5-4.5-1.5-6.5-.5zM10 5v11"/></symbol>
+  <symbol id="i-path" viewBox="0 0 20 20"><circle cx="5" cy="15" r="2"/><circle cx="15" cy="5" r="2"/><path d="M7 15h4.5a2.5 2.5 0 0 0 0-5h-3a2.5 2.5 0 0 1 0-5H13"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 20 20"><circle cx="10" cy="10" r="3.4"/><path d="M10 2.5v1.8M10 15.7v1.8M2.5 10h1.8M15.7 10h1.8M4.7 4.7l1.3 1.3M14 14l1.3 1.3M4.7 15.3 6 14M14 6l1.3-1.3"/></symbol>
+  <symbol id="i-help" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5"/><path d="M7.8 7.8a2.3 2.3 0 1 1 3.3 2.1c-.7.4-1.1.9-1.1 1.7v.4M10 14.2v.1"/></symbol>
+  <symbol id="i-trend" viewBox="0 0 20 20"><path d="M3 14.5 8 9.5l3 3 6-6.5M13 6h4v4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 20 20"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></symbol>
+  <symbol id="i-sync" viewBox="0 0 20 20"><path d="M15.5 8A6 6 0 0 0 4.7 6.2M4.5 12a6 6 0 0 0 10.8 1.8M15.6 3.5V8h-4.5M4.4 16.5V12h4.5"/></symbol>
+</svg>
+
+<header class="appbar">
+  <button class="iconbtn" id="navToggle" data-act="nav-toggle" title="Menu" aria-label="Menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+  <button class="iconbtn" data-act="nav-home" title="Home" aria-label="Home"><svg class="ic"><use href="#i-waffle"/></svg></button>
+  <img id="schoolLogo" class="applogo" alt="" hidden>
+  <div class="appname"><b>Assessment Tracker</b><span id="hdrSub">&nbsp;</span></div>
+  <div class="appsearch noprint noentry">
+    <label><svg class="ic sm"><use href="#i-search"/></svg><input id="appSearch" list="appSearchList" placeholder="Search pupils" autocomplete="off"></label>
+    <datalist id="appSearchList"></datalist>
+  </div>
+  <div class="savebar noprint">
+    <span id="sourceFlag">&nbsp;</span>
+    <span id="dirtyFlag">Loading…</span>
+    <button class="btn sm" data-act="quick-save" title="Save now"><svg class="ic sm"><use href="#i-save"/></svg>Save</button>
+    <button class="iconbtn noentry" data-act="cmdk" aria-label="Search everything (Ctrl+K)" title="Search everything (Ctrl+K)"><svg class="ic"><use href="#i-search"/></svg></button>
+    <button class="iconbtn" id="themeBtn" data-act="theme-menu" aria-label="Appearance" aria-haspopup="menu" title="Appearance"><svg class="ic"><use href="#i-sun"/></svg></button>
+    <button class="iconbtn" data-act="help" aria-label="Help" title="Help"><svg class="ic"><use href="#i-help"/></svg></button>
+    <button class="avatar noentry" id="whoAvatar" data-act="goto-settings" title="Your initials (Settings)">?</button>
+  </div>
+</header>
+
+<nav id="tabs" aria-label="Main">
+  <button data-group="home" data-tab="dashboard" class="active"><svg class="ic"><use href="#i-home"/></svg>Home</button>
+  <button data-group="staff" data-tab="staff"><svg class="ic"><use href="#i-people"/></svg>My classes</button>
+  <div class="navhead">Work</div>
+  <button data-group="enter" data-tab="curentry"><svg class="ic"><use href="#i-edit"/></svg>Enter data</button>
+  <button data-group="pupils" data-tab="pupil"><svg class="ic"><use href="#i-person"/></svg>Pupils</button>
+  <div class="navhead">Insight</div>
+  <button data-group="progress" data-tab="cur"><svg class="ic"><use href="#i-book"/></svg>Progress</button>
+  <button data-group="aaa" data-tab="aaa"><svg class="ic"><use href="#i-path"/></svg>AAA pathways</button>
+  <button data-group="summ" data-tab="compare"><svg class="ic"><use href="#i-compare"/></svg>Summative<span class="navbadge" id="navGapCount" hidden></span></button>
+  <div class="navhead">Admin</div>
+  <button data-group="setup" data-tab="data"><svg class="ic"><use href="#i-gear"/></svg>Set up<span class="navbadge warnb" id="navQualityCount" hidden></span></button>
+  <div class="navfoot" id="navFoot">V41.11</div>
+</nav>
+<div class="scrim" data-act="nav-toggle"></div>
+
+<main id="main" tabindex="-1">
+  <div class="printhead printonly" aria-hidden="true"><img id="printLogo" alt=""><div><b id="printSchool"></b><span id="printWhen"></span></div></div>
+  <div class="bootskel" aria-hidden="true"><div class="sk sk-title"></div><div class="sk-row"><div class="sk sk-tile"></div><div class="sk sk-tile"></div><div class="sk sk-tile"></div><div class="sk sk-tile"></div></div><div class="sk sk-panel"></div></div>
+  <div id="bootBanner" class="noprint"></div>
+  <div id="subnav" class="pivot noprint" role="tablist" hidden></div>
+
+  <!-- DASHBOARD -->
+  <section id="tab-dashboard" class="tabpane">
+    <div class="pagehead"><div><h1>Home</h1><p id="dashContext"></p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div id="homeHero"></div>
+    <h2 class="sectionhead">Progress since joining</h2>
+    <div class="panel" id="dashRmsPanel" style="margin-bottom:16px">
+      <div class="panelhead"><h2>Progress before Red Moor vs at Red Moor</h2><div class="spacer"></div><button class="btn ghost sm noprint" data-tab-go="rms">See every pupil</button></div>
+      <p class="hint" style="margin:4px 0 10px">Levels a year. Before = level on entry ÷ years of schooling before joining. At Red Moor = levels moved since joining ÷ years since. 1.00 a year keeps pace with age.</p>
+      <div class="stats" id="dashRms"></div>
+    </div>
+    <h2 class="sectionhead">Summative assessments</h2>
+    <div class="stats" id="dashStats"></div>
+    <p class="hint noprint" style="margin:8px 0 16px">Click any tile, number or coloured bar to see the pupils behind it, then click a name to open their profile.</p>
+    <div id="dashDrill"></div>
+    <div class="panel" id="dashGlancePanel">
+      <div class="panelhead"><h2>Curriculum and pathways at a glance</h2><div class="spacer"></div>
+        <button class="btn ghost sm noprint" data-tab-go="core">Core subjects</button><button class="btn ghost sm noprint" data-tab-go="aaaprog">AAA &amp; progress</button></div>
+      <div class="stats" id="dashGlance" style="margin-top:10px"></div>
+    </div>
+    <div class="panel">
+      <div class="panelhead"><h2 id="dashYoyTitle">Progress over time</h2><div class="spacer"></div>
+        <button class="btn ghost sm noprint" data-tab-go="compare">Open full comparison</button></div>
+      <div class="pillrow noprint" style="margin-top:8px">
+        <button data-progview="since">Since last year</button>
+        <button data-progview="year">Through this year</button>
+        <button data-progview="term">Same point last year</button>
+      </div>
+      <p class="hint" id="dashYoyHint"></p>
+      <div id="dashYoy"></div>
+      <div id="dashProgDrill"></div>
+    </div>
+    <div class="split">
+      <div class="panel">
+        <h2>Priority pupils</h2>
+        <p class="hint">Flagged in two or more assessments, or flagged and declining.</p>
+        <div id="dashPriority"></div>
+      </div>
+      <div class="panel">
+        <h2>Largest declines since last data drop</h2>
+        <p class="hint">Biggest negative movement, regardless of current attainment.</p>
+        <div id="dashDecline"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Picture by assessment</h2>
+      <div id="dashByAssessment"></div>
+    </div>
+    <div class="panel">
+      <h2>Picture by year group</h2>
+      <div id="dashByYear"></div>
+    </div>
+    <div class="panel">
+      <h2>Picture by pupil group</h2>
+      <p class="hint">Taken from the markers on the master list. The concern rate is the share of that group's results that are a concern; compare it with the whole-school figure on the top row.</p>
+      <div id="dashByGroup"></div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section id="tab-compare" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Compare</h1><p>Year on year, drop on drop, or year group against year group.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="export-compare-csv"><svg class="ic sm"><use href="#i-down"/></svg>Export CSV</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="panel noprint">
+      <div class="row" style="align-items:center">
+        <div class="seg" id="cmpMode">
+          <button data-cmpmode="ay" class="on">Academic years</button>
+          <button data-cmpmode="dp">Data drops</button>
+          <button data-cmpmode="yg">Year groups</button>
+        </div>
+      </div>
+      <div class="row" id="cmpPickers">
+        <label class="fld" id="cmpALbl">From<select id="cmpA"></select></label>
+        <span class="vs" id="cmpVs">vs</span>
+        <label class="fld" id="cmpBLbl">To<select id="cmpB"></select></label>
+        <label class="fld">Year group<select id="cmpYear"></select></label>
+        <label class="fld">Pupil group<select id="cmpMarker"></select></label>
+        <label class="fld" id="cmpMatchLbl" style="flex-direction:row;align-items:center;gap:8px;padding-bottom:6px"><input type="checkbox" id="cmpMatched">Same pupils only</label>
+      </div>
+      <p class="hint" id="cmpHint" style="margin:0"></p>
+    </div>
+    <div class="panel">
+      <div id="cmpMain"></div>
+    </div>
+    <div class="panel" id="cmpDetailPanel">
+      <div class="panelhead"><h2 id="cmpDetailTitle">By year group</h2><div class="spacer"></div>
+        <label class="fld noprint" style="flex-direction:row;align-items:center;gap:8px">Assessment<select id="cmpAssessment"></select></label></div>
+      <p class="hint" id="cmpDetailHint"></p>
+      <div id="cmpDetail"></div>
+    </div>
+  </section>
+
+  <!-- GAPS -->
+  <section id="tab-gaps" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Missing results</h1><p>Pupils with no result yet this year for an assessment their year group has sat. Earlier years aren’t counted.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="export-gaps-csv"><svg class="ic sm"><use href="#i-down"/></svg>Export CSV</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="panel noprint">
+      <div class="row" style="margin-bottom:0">
+        <label class="fld">Period<select id="gapDataPoint"></select></label>
+        <label class="fld">Year group<select id="gapYear"></select></label>
+        <label class="fld">Teaching group<select id="gapGroup"></select></label>
+        <div class="seg" id="gapView" style="margin-bottom:1px">
+          <button data-gapview="pupils" class="on">By pupil</button>
+          <button data-gapview="grid">Grid</button>
+          <button data-gapview="assess">By assessment</button>
+        </div>
+      </div>
+    </div>
+    <div class="stats" id="gapStats" style="margin-bottom:16px"></div>
+    <div class="panel"><div id="gapBody"></div>
+      <details class="rules noprint"><summary>How "missing" is worked out</summary>
+        <ul>
+          <li>By default the page looks at the <strong>whole current year</strong>: a pupil is only missing an assessment if they have no result for it in any data drop so far this year. Pick a single drop at the top to look at just that one.</li>
+          <li>An assessment set to <strong>Every data drop</strong> (Assessments → Edit → How often it is sat) is checked drop by drop instead.</li>
+          <li>An assessment counts as <strong>started</strong> once at least one pupil has a result for it.</li>
+          <li>It is then <strong>expected</strong> from every pupil in the year groups it is set for (Assessments → Edit → <em>Year groups</em>). If no year groups are set, it is expected from the year groups that already have at least one result in that drop.</li>
+          <li>Assessments switched off, and pupils outside those year groups, are never counted as missing. Click a red cell to go straight to entering that result.</li>
+        </ul></details>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section id="tab-cur" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Curriculum</h1><p>Levels 1E–9S against 0.8 of a level a year from each pupil’s baseline, and GCSE target against predicted from Year 10.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn" data-tab-go="curentry"><svg class="ic sm"><use href="#i-edit"/></svg>Enter levels</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="panel noprint">
+      <div class="row" style="margin-bottom:0">
+        <label class="fld">Subject<select id="curSubject"></select></label>
+        <label class="fld">Data<select id="curDrop"></select></label>
+        <label class="fld">Year group<select id="curYear"></select></label>
+        <label class="fld">Pathway<select id="curPathway"></select></label>
+        <label class="fld">Pupil group<select id="curMarker"></select></label>
+      </div>
+    </div>
+    <div class="stats" id="curStats" style="margin-bottom:16px"></div>
+    <div class="panel">
+      <div class="pillrow noprint" id="curStatusPills" hidden>
+        <button data-curstatus="all" class="on">All</button><button data-curstatus="well">Well behind</button>
+        <button data-curstatus="behind">Behind</button><button data-curstatus="ontrack">On track</button>
+        <button data-curstatus="ahead">Ahead</button><button data-curstatus="nobase">No baseline</button>
+      </div>
+      <div id="curBody"></div>
+    </div>
+  </section>
+
+  <section id="tab-curentry" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Enter levels</h1><p>Type levels straight in and press Enter to move down. Use the grid to do every subject for a class in one go. Entries save as you go.</p></div></div>
+    <div class="panel">
+      <div class="row noprint">
+        <label class="fld">View<select id="ceMode"><option value="list">One subject at a time</option><option value="grid">All subjects at once (grid)</option></select></label>
+        <label class="fld">Subject<select id="ceSubject"></select></label>
+        <label class="fld">Data drop<select id="ceDrop"></select></label>
+        <label class="fld">Entering<select id="ceKind"></select></label>
+        <label class="fld">Year group<select id="ceYear"></select></label>
+        <label class="fld">Teaching group<select id="ceGroup"></select></label>
+      </div>
+      <div class="row noprint" style="gap:18px">
+        <label class="fld" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" id="ceMissing">Not yet entered only</label>
+        <label class="fld noentry" id="ceEditBaseWrap" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" id="ceEditBase">Edit baselines</label>
+        <label class="fld" style="flex-direction:row;align-items:center;gap:8px"><input type="checkbox" id="ceAllYears">Include GCSE years for levels</label>
+      </div>
+      <div id="ceGuide" class="warn info" hidden></div>
+      <div id="ceTable" class="tablewrap"></div>
+    </div>
+  </section>
+
+  <!-- PATHWAYS -->
+  <section id="tab-aaa" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>AAA board</h1><p>Attain · Attune to Learn · Attune to School · Attend. Click a pupil to log an update.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="export-aaa-csv"><svg class="ic sm"><use href="#i-down"/></svg>Export log</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div id="aaaSetupNote" class="noprint"></div>
+    <div class="pillrow noprint" id="aaaYears"></div>
+    <div class="row noprint" style="align-items:center">
+      <label class="fld">Search<input id="aaaSearch" placeholder="Pupil name" style="width:220px"></label>
+      <label class="fld" style="flex-direction:row;align-items:center;gap:8px;padding-bottom:6px"><input type="checkbox" id="aaaStale">Not updated recently only</label>
+    </div>
+    <div class="stats" id="aaaStats" style="margin-bottom:16px"></div>
+    <div id="aaaOverview"></div>
+    <p class="hint noprint" style="margin:0 0 8px">Drag a pupil to another column to move them: the log panel opens with the new pathway chosen, so you only add the reason.</p>
+    <div id="aaaBoard"></div>
+    <div class="panel" style="margin-top:16px"><h2>Recent updates</h2><div id="aaaRecent" class="tablewrap" style="margin-top:8px"></div></div>
+  </section>
+
+  <section id="tab-staff" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>My classes</h1><p>Your subjects and classes: what still needs entering, and how each class is doing.</p></div><div class="spacer"></div>
+      <label class="fld noprint">I am<select id="staffMe"></select></label></div>
+    <div class="stats" id="staffStats" style="margin-bottom:16px"></div>
+    <div id="staffBody"></div>
+  </section>
+
+  <section id="tab-rms" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Before vs at Red Moor</h1><p>How fast pupils progressed before they joined, against how fast they have progressed here.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="export-rms-csv"><svg class="ic sm"><use href="#i-down"/></svg>Export CSV</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="row noprint" style="align-items:flex-end"><div class="pillrow" id="rmsYears" style="margin:0"></div><span class="spacer"></span>
+      <label class="fld">Subjects<select id="rmsSub"></select></label><label class="fld">Pathway now<select id="rmsPw"></select></label></div>
+    <div class="stats" id="rmsStats" style="margin:12px 0 16px"></div>
+    <div id="rmsBody"></div>
+  </section>
+
+  <section id="tab-core" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Core subjects</h1><p>English, maths and science by pathway and year group: against age, progress, gap closing and likely GCSE grades.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="export-core-csv"><svg class="ic sm"><use href="#i-down"/></svg>Export CSV</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="row noprint" style="align-items:flex-end"><div class="pillrow" id="coreYears" style="margin:0"></div><span class="spacer"></span>
+      <label class="fld">Pathway now<select id="corePwSel"></select></label></div>
+    <div class="stats" id="coreStats" style="margin:12px 0 16px"></div>
+    <div id="coreBody"></div>
+  </section>
+
+  <section id="tab-aaaprog" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>AAA &amp; progress</h1><p>How each pathway is doing academically, whether moves made a difference, and pupils whose pathway and data don’t agree.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="export-aaaprog-csv"><svg class="ic sm"><use href="#i-down"/></svg>Export CSV</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="pillrow noprint" id="progYears"></div>
+    <div class="stats" id="progStats" style="margin-bottom:16px"></div>
+    <div id="progBody"></div>
+  </section>
+
+  <!-- FLAGS -->
+  <section id="tab-flags" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Flags</h1><p>Every flag with the evidence behind it. Print this, or export it as CSV for the UAP tracker.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="export-flags-csv"><svg class="ic sm"><use href="#i-down"/></svg>Export CSV</button>
+      <button class="btn subtle" data-act="print-flags"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="panel">
+      <div class="pillrow noprint" id="flagFilter">
+        <button data-flagfilter="all" class="on">All flags</button>
+        <button data-flagfilter="concern">Concern only</button>
+        <button data-flagfilter="watch">Watch only</button>
+        <button data-flagfilter="decline">Declining</button>
+        <button data-flagfilter="priority">Priority pupils</button>
+      </div>
+      <div class="row noprint">
+        <label class="fld">Year group<select id="flagYear"></select></label>
+        <label class="fld">Subject<select id="flagSubject"></select></label>
+        <label class="fld">Data drop<select id="flagDataPoint"></select></label>
+        <label class="fld">Pupil group<select id="flagMarker"></select></label>
+      </div>
+      <div id="flagTable" class="tablewrap"></div>
+      <div id="flagConflicts"></div>
+      <details class="rules noprint">
+        <summary>How flags are worked out</summary>
+        <div id="ruleExplain"></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- PUPIL PROFILE -->
+  <section id="tab-pupil" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Pupil profile</h1></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><label class="fld" style="flex-direction:row;align-items:center;gap:8px">Pupil<select id="profilePupil"></select></label>
+      <button class="btn subtle" data-act="print-profile"><svg class="ic sm"><use href="#i-print"/></svg>Print</button></div></div>
+    <div class="panel">
+      <div id="profileBack" class="noprint"></div>
+      <div id="profileBody"></div>
+    </div>
+  </section>
+
+  <!-- PUPILS -->
+  <section id="tab-pupils" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Pupil list</h1><p>Date of birth drives reading- and maths-age gaps, so add it where you have it.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint">
+        <button class="btn subtle" data-tab-go="io"><svg class="ic sm"><use href="#i-down"/></svg>Import pupils</button></div></div>
+    <div class="panel">
+      <h2>Add a pupil</h2>
+      <div class="row" style="margin-top:10px">
+        <label class="fld">Name<input id="puName" placeholder="Surname, Forename"></label>
+        <label class="fld">Year<input id="puYear" type="number" min="0" max="14" style="width:80px"></label>
+        <label class="fld">Teaching group<input id="puGroup" style="width:130px"></label>
+        <label class="fld">Date of birth<input id="puDob" type="date"></label>
+        <label class="fld">UPN<input id="puUpn" style="width:130px"></label>
+        <button class="btn" data-act="pupil-add"><svg class="ic sm"><use href="#i-add"/></svg>Add pupil</button>
+      </div>
+      <div id="pupilCsvBox" hidden style="margin-bottom:14px">
+        <p class="hint">Paste rows with a header line. Recognised columns: <code>Name, DOB, Year, Group, UPN, SEND, EHCP, PP, EAL</code>. DOB as DD/MM/YYYY or YYYY-MM-DD.</p>
+        <textarea id="pupilCsvText" rows="7" style="width:100%"></textarea>
+        <div class="row" style="margin-top:8px">
+          <button class="btn" data-act="pupils-csv-apply">Import</button>
+          <button class="btn ghost" data-act="pupils-csv-close">Cancel</button>
+        </div>
+        <div id="pupilCsvReport"></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="row"><label class="fld">Search<input id="pupilSearch" placeholder="Name or group" style="width:260px"></label></div>
+      <div id="pupilTable" class="tablewrap"></div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM: signing off statements -->
+  <section id="tab-fwentry" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Sign off</h1><p>The curriculum, statement by statement. Tap as you go; the statements then suggest a level at each data drop.</p></div></div>
+    <div class="panel">
+      <div class="row noprint" style="align-items:flex-end;flex-wrap:wrap">
+        <label class="fld">Framework<select id="fwFw"></select></label>
+        <label class="fld">Level<select id="fwLevel"></select></label>
+        <label class="fld">Year group<select id="fwYear"></select></label>
+        <label class="fld">Teaching group<select id="fwGroup"></select></label>
+        <label class="fld">Tap to<select id="fwTap"><option value="cycle">Move the judgement on</option><option value="note">Add a note or link</option></select></label>
+        <label class="chk"><input type="checkbox" id="fwKeyOnly"> Key statements only</label>
+        <label class="chk"><input type="checkbox" id="fwHtOnly"> <span id="fwHtLabel">This half-term</span></label>
+      </div>
+      <div id="fwGuide" class="warn info" hidden></div>
+      <div id="fwTable" class="tablewrap fwwrap"></div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM: SLT views -->
+  <section id="tab-fwcov" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Curriculum</h1><p>Which statements are being assessed, what the statements suggest beside the levels entered, and each pupil’s next steps.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="fw-xlsx"><svg class="ic sm"><use href="#i-down"/></svg>Excel</button></div></div>
+    <div class="row noprint" style="align-items:flex-end;flex-wrap:wrap">
+      <label class="fld">Show<select id="fwcView"><option value="cover">Coverage</option><option value="mod">Suggested vs entered (moderation)</option><option value="next">Next steps</option></select></label>
+      <label class="fld">Framework<select id="fwcFw"></select></label>
+      <label class="fld">Data drop<select id="fwcDrop"></select></label>
+      <label class="fld">Year group<select id="fwcYear"></select></label>
+      <label class="chk" id="fwcOnlyWrap"><input type="checkbox" id="fwcOnly" checked> Only the ones to look at</label>
+    </div>
+    <div id="fwcBody"></div>
+  </section>
+
+  <!-- QUALIFICATIONS: entering -->
+  <section id="tab-classview" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Overview</h1><p>Your classes at a glance: results across the year, and each pupil’s progress against the criteria. Nothing here can be changed.</p></div></div>
+    <div class="panel">
+      <div class="row noprint" style="align-items:flex-end">
+        <label class="fld">Subject<select id="cvSub"></select></label>
+        <label class="fld">Class<select id="cvClass"></select></label>
+        <label class="fld">Up to data drop<select id="cvDrop"></select></label>
+      </div>
+      <div id="cvGuide" style="margin-top:10px"></div>
+      <div class="stats" id="cvStats" style="margin:12px 0"></div>
+      <div id="cvBody"></div>
+    </div>
+  </section>
+  <section id="tab-aaaentry" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>AAA pathways</h1><p>Attain · Attune to Learn · Attune to School · Attend. Log an update for one of your pupils and their pathway changes straight away.</p></div></div>
+    <div class="panel">
+      <div class="row noprint" style="align-items:flex-end">
+        <label class="fld">Year group<select id="aeYear"></select></label>
+        <label class="fld">Teaching group<select id="aeGroup"></select></label>
+        <label class="fld">Pathway<select id="aePw"></select></label>
+      </div>
+      <div id="aeGuide" hidden></div>
+      <div id="aeTable" class="tablewrap"></div>
+    </div>
+  </section>
+  <section id="tab-qualentry" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Qualifications</h1><p>BTEC, ASDAN, Functional Skills, Entry Level and others: status, units and grades at each data drop. Entries save as you go.</p></div></div>
+    <div class="panel">
+      <div class="row noprint" style="align-items:flex-end">
+        <label class="fld">Find<input id="qeFind" type="search" placeholder="Type to search" autocomplete="off" style="width:170px"></label>
+        <label class="fld">Type<select id="qeTypeF"></select></label>
+        <label class="fld">Qualification<select id="qeQual"></select></label>
+        <label class="fld">Data drop<select id="qeDrop"></select></label>
+        <label class="fld">Year group<select id="qeYear"></select></label>
+        <label class="fld">Teaching group<select id="qeGroup"></select></label>
+        <button class="btn ghost" data-act="qual-add-pupils"><svg class="ic sm"><use href="#i-add"/></svg>Add pupils</button>
+      </div>
+      <div id="qeGuide" class="warn info" hidden></div>
+      <div id="qeTable" class="tablewrap"></div>
+    </div>
+  </section>
+
+  <!-- QUALIFICATIONS: overview -->
+  <section id="tab-quals" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Qualifications</h1><p>Who is working towards what, who is at risk, and what each year group leaves with.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="quals-xlsx"><svg class="ic sm"><use href="#i-down"/></svg>Excel</button></div></div>
+    <div class="row noprint">
+      <label class="fld">At data drop<select id="qlDrop"></select></label>
+      <label class="fld">Year group<select id="qlYear"></select></label>
+      <label class="fld">Find<input id="qlFind" type="search" placeholder="Search qualifications" autocomplete="off"></label>
+      <label class="fld">Type<select id="qlType"></select></label>
+    </div>
+    <div id="qualsBody"></div>
+  </section>
+
+  <!-- ENTRY -->
+  <section id="tab-entry" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Enter results</h1><p>Pick an assessment and a data drop, then work down the list. Entries save as you type.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="paste-open"><svg class="ic sm"><use href="#i-copy"/></svg>Paste from a spreadsheet</button></div></div>
+    <div class="panel">
+      <div class="row noprint">
+        <label class="fld">Assessment<select id="entryAssessment"></select></label>
+        <label class="fld">Data drop<select id="entryDataPoint"></select></label>
+        <label class="fld">Year group<select id="entryYear"></select></label>
+        <label class="fld">Teaching group<select id="entryGroup"></select></label>
+        <label class="fld" style="flex-direction:row;align-items:center;gap:8px;padding-bottom:6px"><input type="checkbox" id="entryMissingOnly">Missing only</label>
+        <button class="btn ghost" data-act="entry-clear-filters">Reset filters</button>
+      </div>
+      <div id="entryGuide" class="warn info" hidden></div>
+      <div id="pasteBox" hidden style="margin-bottom:14px">
+        <p class="hint">One pupil per line: <strong>name, result</strong>, e.g. <code>Jordan Pascoe, 87</code>. Names are matched to the pupil list; unmatched lines are reported back.</p>
+        <textarea id="pasteText" rows="7" style="width:100%"></textarea>
+        <div class="row" style="margin-top:8px">
+          <button class="btn" data-act="paste-apply">Apply to selected assessment &amp; drop</button>
+          <button class="btn ghost" data-act="paste-close">Cancel</button>
+        </div>
+        <div id="pasteReport"></div>
+      </div>
+      <div id="entryTable" class="tablewrap"></div>
+    </div>
+  </section>
+
+  <!-- IMPORT & EXPORT -->
+  <section id="tab-io" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Import &amp; export</h1><p>Bring data in from Excel, CSV or another system, and take any list out again.</p></div></div>
+    <div class="panel">
+      <h2>1. What are you importing?</h2>
+      <div class="row" style="align-items:flex-end">
+        <label class="fld">Type of data<select id="ioKind"></select></label>
+        <label class="fld">Or load a file<input type="file" id="ioFile" accept=".csv,.tsv,.txt,.xlsx,.xls,text/csv"></label>
+        <label class="fld" id="ioSheetWrap" hidden>Sheet<select id="ioSheet"></select></label>
+      </div>
+      <label class="fld" style="margin-top:8px">Paste cells from Excel (include the heading row)<textarea id="ioPaste" rows="6" style="width:100%;font-family:ui-monospace,Consolas,monospace;font-size:12px" placeholder="Name&#9;Year&#9;English&#9;Maths&#10;Smith, Jo&#9;8&#9;4D&#9;3S"></textarea></label>
+      <div class="row" style="margin-top:8px"><button class="btn" data-act="io-use-paste">Read pasted data</button>
+        <button class="btn ghost" data-act="io-clear">Clear</button>
+        <span class="hint" style="align-self:center">Levels can be written 4D, 4 d, 4-Developing or Level 4 Secure; a bare 4 means 4E.</span></div>
+    </div>
+    <div id="ioBody"></div>
+    <div class="panel" style="margin-top:16px">
+      <h2>Templates</h2>
+      <p class="hint">A CSV with your pupils already listed and a column for each subject. Fill it in Excel, then paste or load it above.</p>
+      <div class="row" style="align-items:flex-end"><label class="fld">Template<select id="ioTplKind">
+        <option value="levels">Curriculum levels (KS1–KS3)</option><option value="predicted">GCSE predicted (KS4)</option><option value="target">GCSE targets (KS4)</option>
+        <option value="baseline">Baselines on entry</option><option value="results">Summative results</option><option value="aaa">AAA pathways</option><option value="pupils">New pupils</option></select></label>
+        <button class="btn ghost" data-act="io-template"><svg class="ic sm"><use href="#i-down"/></svg>Download template</button>
+        <button class="btn ghost" data-act="tpl-download"><svg class="ic sm"><use href="#i-down"/></svg>Whole-tracker Excel template (all sheets, drop-downs)</button></div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <h2>Reports</h2>
+      <p class="hint">One row per pupil and subject: the start-of-year grade, the current grade, the change, this year&rsquo;s status, levels a year before and since joining, against age, likely GCSE and target.
+        The Excel file has a second sheet with one row per pupil. For a single pupil, use <strong>Report</strong> on their profile.</p>
+      <div class="row" style="align-items:flex-end">
+        <label class="fld">Year group<select id="repYear"><option value="">Whole school</option></select></label>
+        <label class="fld">Subjects<select id="repSubs"><option value="all">All subjects</option><option value="core">Core subjects only</option></select></label>
+        <button class="btn" data-act="report-xlsx"><svg class="ic sm"><use href="#i-down"/></svg>Download report (Excel)</button>
+        <button class="btn ghost" data-act="report-csv">CSV</button>
+      </div>
+      <div id="repNote"></div>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <h2>Export</h2>
+      <p class="hint">CSV files open in Excel. The backup holds everything and can be loaded back in Settings &amp; data.</p>
+      <div class="row" style="gap:8px">
+        <button class="btn ghost" data-act="export-pupils-csv">Pupils</button>
+        <button class="btn ghost" data-act="export-cur-csv">Curriculum levels &amp; GCSE</button>
+        <button class="btn ghost" data-act="export-base-csv">Baselines</button>
+        <button class="btn ghost" data-act="export-metrics-csv">Progress metrics (per pupil and subject)</button>
+        <button class="btn ghost" data-act="export-all-csv">Summative results</button>
+        <button class="btn ghost" data-act="export-aaa-csv">AAA pathway log</button>
+        <button class="btn ghost" data-act="export-aaaprog-csv">AAA &amp; progress summary</button>
+        <button class="btn ghost" data-act="export-core-csv">Core subjects</button>
+        <button class="btn ghost" data-act="export-rms-csv">Before vs at Red Moor</button>
+        <button class="btn" data-act="export-json">Full backup (.json)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRY PROGRESS -->
+  <section id="tab-entryprog" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Entry progress</h1><p>Who still has levels or GCSE grades to enter, so nobody has to chase by email.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><label class="fld" style="flex-direction:row;align-items:center;gap:8px">Data drop<select id="epDrop"></select></label></div></div>
+    <div id="entryProgBody"></div>
+  </section>
+
+  <!-- DATA CHECKS -->
+  <section id="tab-quality" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Data checks</h1><p>Things in the data that are probably mistakes, each with a one-click fix. Ignore anything that is right as it is.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint"><button class="btn subtle" data-act="q-unignore"><svg class="ic sm"><use href="#i-sync"/></svg>Show ignored items again</button></div></div>
+    <div id="qualityBody"></div>
+  </section>
+
+  <!-- ASSESSMENTS -->
+  <section id="tab-assessments" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Assessments</h1><p>Each assessment has its own score type, thresholds and year groups. Change anything and every flag recalculates.</p></div><div class="spacer"></div>
+      <div class="cmdbar noprint">
+        <button class="btn" data-act="assessment-new"><svg class="ic sm"><use href="#i-add"/></svg>New assessment</button>
+        <button class="btn subtle" data-act="add-standards"><svg class="ic sm"><use href="#i-sync"/></svg>Add missing standard assessments</button></div></div>
+    <div id="standardsReport"></div>
+    <div class="pillrow noprint" id="asFilter">
+      <button data-asfilter="all" class="on">All</button>
+      <button data-asfilter="on">In use</button>
+      <button data-asfilter="off">Switched off</button>
+    </div>
+    <div id="assessmentList"></div>
+    <div class="panel" style="margin-top:16px">
+      <h2>Score types</h2>
+      <p class="hint">The scoring engine behind each assessment. Pick one in an assessment's edit panel; you can also give it your own display name there, such as "Salford reading test" for a reading age.</p>
+      <div id="scoreTypeList" class="tablewrap"></div>
+    </div>
+  </section>
+
+  <!-- DATA -->
+  <section id="tab-data" class="tabpane" hidden>
+    <div class="pagehead"><div><h1>Settings &amp; data</h1><p>Your school, where the data is kept, and the rules the tracker uses.</p></div></div>
+    <div class="panel" id="schoolPanel"></div>
+    <div class="panel" id="sourcePanel"></div>
+    <div class="panel" id="connectPanel">
+      <div class="panelhead"><h2>Connect to SharePoint</h2><div class="spacer"></div><span id="connectState" class="tag t-none">Not connected</span></div>
+      <p class="hint noinpa">One-off setup, in order. The Rebuild Guide explains each step.</p>
+      <p class="hint onlypa">This copy runs inside Power Apps and opens the SharePoint lists with your own school sign-in. There is no flow link or passphrase. Who can open it is set by sharing the app in Power Apps; who can change the data is set by the permissions on the SharePoint lists.</p>
+      <div class="row onlypa"><button class="btn ghost" data-act="pa-check">Check the SharePoint lists</button></div>
+      <div class="row noinpa" style="margin-top:10px">
+        <label class="fld" style="flex:1;min-width:300px">1. TrackerAPI flow link <small>the HTTP URL from the flow's first step</small><input id="flowUrlInput" placeholder="https://…" autocomplete="off"></label>
+        <button class="btn" data-act="flow-save-link">Connect</button>
+      </div>
+      <div class="row noinpa"><button class="btn ghost" data-act="flow-builtin-copy"><svg class="ic sm"><use href="#i-down"/></svg>Download my copy with the link built in</button></div>
+      <div class="row noinpa">
+        <button class="btn ghost" data-act="sp-setup">2. Set up the SharePoint lists</button>
+      </div>
+      <p class="hint noinpa" style="margin-top:-4px">With the link built in, nobody has to paste it: save the downloaded file over this one in the SLT folder. Without it, the link is kept in this browser only, never in the file, so a copied file is no use on its own. Each computer pastes it once, and every request also needs the passphrase.</p>
+      <div class="row noinpa" style="align-items:center">
+        <span class="hint" id="passState" style="margin:0"></span>
+        <button class="btn ghost sm" data-act="pass-forget">Forget the passphrase on this computer</button>
+      </div>
+      <div id="spReport"></div>
+    </div>
+    <div class="panel noinpa">
+      <div class="panelhead"><h2>Use it in another school</h2><div class="spacer"></div><span class="tag t-none" id="appVersionTag"></span></div>
+      <p class="hint">A blank copy has no pupils, no flow link and its own storage in the browser, so it can sit next to this one without mixing data.
+        The other school builds its own SharePoint lists and flow with the setup guide, then uses Connect to SharePoint in its copy.</p>
+      <div class="row"><button class="btn ghost" data-act="download-blank"><svg class="ic sm"><use href="#i-down"/></svg>Download a blank copy for another school</button></div>
+    </div>
+    <div class="panel">
+      <h2>Where the data lives</h2>
+      <p class="hint">Changes are written to the lists automatically a moment after you stop typing.</p>
+      <div id="linkStatus"></div>
+      <div class="row">
+        <button class="btn" data-act="quick-save"><svg class="ic sm"><use href="#i-save"/></svg>Save now</button>
+        <button class="btn ghost" data-act="refresh-file">Reload from SharePoint</button>
+      </div>
+      <div class="row">
+        <button class="btn ghost" data-act="quick-load">Import a tracker_data.js or backup file…</button>
+        <button class="btn ghost" data-act="backup-xlsx">Export a backup to Excel</button>
+        <button class="btn ghost" data-act="export-json">Download a dated backup (.json)</button>
+        <button class="btn ghost" data-act="export-all-csv">Export all results as CSV</button>
+        <button class="btn danger" data-act="wipe">Start a blank tracker</button>
+      </div>
+      <input type="file" id="fileInput" accept=".js,.json,application/json,text/javascript" hidden>
+      <div id="dataReport"></div>
+      <details class="rules">
+        <summary>How saving works</summary>
+        <div class="hint" style="margin-top:8px">
+          <p>The header shows <strong>Saving…</strong> while a change is on its way and <strong>Saved</strong>, with the time and who, once SharePoint has it. There is nothing to press; <strong>Save</strong> only skips the short pause.</p>
+          <p>A copy is also kept in this browser. If the connection drops, the tracker keeps trying, and anything that has not reached SharePoint is offered back to you the next time you open it.</p>
+          <p>Several people can have the tracker open. It picks up colleagues’ saves by itself every minute while you are not typing. If two people change it at the same moment, the second save is stopped and you choose whose version to keep. Nothing is overwritten without asking.</p>
+          <p>Only the items you change are sent, so a colleague editing other pupils at the same time is never overwritten. You can also edit the lists directly in SharePoint; the tracker picks that up within a minute. If something goes wrong, each list item's <em>Version history</em> keeps every earlier version.</p>
+        </div>
+      </details>
+    </div>
+    <div class="panel">
+      <h2>School and year</h2>
+      <div class="row" style="margin-top:10px">
+        <label class="fld">School<input id="metaSchool" style="width:240px"></label>
+        <label class="fld">Current academic year<input id="metaYear" style="width:140px"></label>
+        <label class="fld">Your initials<input id="whoInitials" maxlength="6" style="width:90px" placeholder="e.g. LM"></label>
+      </div>
+      <p class="hint" style="margin:0">The current academic year is used on the Compare page to work out which year group a pupil was in for earlier years.</p>
+    </div>
+    <div class="panel">
+      <h2>Data drops</h2>
+      <p class="hint">Order here is the order used for progress comparisons. The academic year comes from the date (September to August).</p>
+      <div id="dpList" class="tablewrap"></div>
+      <div class="row" style="margin-top:12px">
+        <label class="fld">Name<input id="dpName" placeholder="e.g. Spring 2027" style="width:190px"></label>
+        <label class="fld">Date<input id="dpDate" type="date"></label>
+        <button class="btn" data-act="dp-add"><svg class="ic sm"><use href="#i-add"/></svg>Add data drop</button>
+        <button class="btn ghost" data-act="merge-drops" title="Drops with the same name are combined into one">Merge duplicate drops</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Staff</h2>
+      <p class="hint">Who teaches what. Each member of staff sees their own subjects and classes under <strong>My classes</strong>. Leave year groups and teaching groups blank for everyone.</p>
+      <div id="staffList" class="tablewrap"></div>
+      <div class="row" style="margin-top:10px;align-items:flex-end">
+        <label class="fld">Name<input id="stName" placeholder="e.g. Jo Smith" style="width:180px"></label>
+        <label class="fld">Initials<input id="stInit" style="width:70px"></label>
+        <button class="btn" data-act="st-add"><svg class="ic sm"><use href="#i-add"/></svg>Add member of staff</button>
+        <span class="spacer"></span>
+        <button class="btn ghost noinpa" data-act="entry-file"><svg class="ic sm"><use href="#i-down"/></svg>Download staff entry file</button>
+        <button class="btn ghost noinpa" data-act="staff-copy"><svg class="ic sm"><use href="#i-down"/></svg>Download staff copy</button>
+      </div>
+      <p class="hint noinpa" style="margin-top:8px"><strong>Staff entry file:</strong> staff see only the entry pages, only their own pupils and subjects, and only data drops with an open window. It uses the TrackerAPI flow and the passphrase like this file, and remembers which member of staff is using each computer. Keep it in a staff-only folder.</p>
+      <p class="hint onlypa" style="margin-top:8px">In Power Apps everyone opens the same app. Share it with staff from Power Apps; SharePoint permissions on the lists decide who can change data.</p>
+      <p class="hint noinpa" style="margin-top:8px">The staff copy opens on My classes with the SLT pages and safeguarding markers hidden. It uses the same flow link, so it keeps things simple for staff rather than locking anything down: keep it in a staff-only folder.</p>
+    </div>
+    <div class="panel" id="fwPanel">
+      <h2>Curriculum frameworks</h2>
+      <p class="hint">Your curriculum as assessable statements. Import the <strong>Evidence for Learning text exports</strong> (.txt) or the <strong>criteria workbook</strong>; importing again updates in place and keeps every sign-off. In <strong>Edit</strong>, tick the 6–10 <strong>key</strong> statements per level and set half-terms, so staff see a short, current list. <strong>Taught in</strong> decides which teachers sign it off in staff entry.</p>
+      <div id="fwMissing" class="warn" hidden>The two SharePoint lists for frameworks (Frameworks and StatementMarks) aren’t on the site yet, so frameworks are kept in this browser only. Click <strong>Set up the SharePoint lists</strong> once to add them.</div>
+      <div id="fwSettings" class="tablewrap"></div>
+      <div class="row" style="margin-top:10px;flex-wrap:wrap">
+        <button class="btn" data-act="efl-data-import"><svg class="ic sm"><use href="#i-add"/></svg>Import EfL data (export .xlsx and/or transaction logs .csv)</button>
+        <button class="btn ghost" data-act="fw-import">Import EFL framework files (.txt) or the workbook</button>
+        <button class="btn ghost" data-act="fw-criteria"><svg class="ic sm"><use href="#i-down"/></svg>Criteria workbook (edit Key and Half-term in Excel)</button>
+      </div>
+      <h3 style="margin-top:16px">How the statements suggest a level</h3>
+      <p class="hint">At the level a pupil is working in: below <strong>Developing</strong>% of key statements secure is Emerging, then Developing, and <strong>Secure</strong>% or more (with none at Not yet) is Secure. No suggestion until <strong>Evidence needed</strong>% of the key statements have been assessed. A Secure judgement older than <strong>Re-check after</strong> days is flagged, not discounted. Suggestions never change a level; a level more than one step away asks for a reason.</p>
+      <div class="row" style="flex-wrap:wrap">
+        <label class="fld">Developing from <small>% key secure</small><input id="fwDev" type="number" min="1" max="99" style="width:90px"></label>
+        <label class="fld">Secure from <small>% key secure</small><input id="fwSecure" type="number" min="1" max="100" style="width:90px"></label>
+        <label class="fld">Evidence needed <small>% assessed</small><input id="fwCover" type="number" min="0" max="100" style="width:90px"></label>
+        <label class="fld">Re-check after <small>days</small><input id="fwStaleDays" type="number" min="7" max="3650" style="width:90px"></label>
+      </div>
+    </div>
+    <div class="panel" id="qualPanel">
+      <h2>Qualifications</h2>
+      <p class="hint">BTEC, ASDAN, Functional Skills, Entry Level Certificates and anything else pupils work towards. <strong>Taught in</strong> decides which teachers update it in staff entry; leave it as Any teacher for tutor-led courses.</p>
+      <div class="row noprint" style="align-items:flex-end">
+        <label class="fld" style="flex:1 1 260px">Find a qualification<input id="qsFind" type="search" placeholder="Search by name, board or type" autocomplete="off"></label>
+        <label class="fld">Type<select id="qsType"></select></label>
+      </div>
+      <div id="qualSettings" class="tablewrap"></div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn" data-act="qual-add"><svg class="ic sm"><use href="#i-add"/></svg>Add qualification</button>
+        <button class="btn ghost" data-act="asdan-import">Import ASDAN record sheets</button>
+        <button class="btn ghost" data-act="qual-units-export">Export units (to check)</button>
+        <button class="btn ghost" data-act="qual-units-import">Import units</button>
+        <button class="btn" data-act="exam-import">Import exam results</button>
+        <button class="btn ghost" data-act="qual-fw-audit">Audit: qualification sign-offs</button>
+        <button class="btn ghost" data-act="qual-uas-bulk">Add UAS units in bulk</button>
+        <button class="btn ghost" data-act="qual-fs-ladders">Add Functional Skills ladders (English and Maths, Entry 1 to Level 2)</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Curriculum</h2>
+      <p class="hint">Levels run 1E to 9S in thirds of a level. These rules decide each pupil’s status. On track = making at least the expected progress a year, measured from the start point you choose.</p>
+      <div class="row" style="margin-top:10px">
+        <label class="fld">Expected progress <small>levels a year</small><input id="curRate" type="number" step="0.1" min="0" style="width:100px"></label>
+        <label class="fld">Measured from<select id="curJudgeFrom"><option value="join">Baseline: since joining the school</option><option value="year">Start of this school year</option></select></label>
+        <label class="fld">Rounding margin <small>steps below expected (0.5 = half a step)</small><input id="curTol" type="number" step="0.5" min="0" style="width:100px"></label>
+        <label class="fld">Well behind from <small>steps below</small><input id="curWell" type="number" step="1" min="1" style="width:100px"></label>
+        <label class="fld">Judge after <small>years of data (0.4 ≈ 5 months)</small><input id="curMinYears" type="number" step="0.1" min="0" style="width:100px"></label>
+      </div>
+      <div class="row">
+        <label class="fld">GCSE grades from <small>year group</small><input id="curGcseFrom" type="number" min="1" max="14" style="width:100px"></label>
+        <label class="fld">GCSE pupils judged against<select id="curKs4Judge"><option value="expected">The grade expected progress leads to</option><option value="target">Their GCSE target</option></select></label>
+        <label class="fld">Likely GCSE from <small>year group</small><input id="curGcseProjFrom" type="number" min="1" max="14" style="width:100px"></label>
+        <label class="fld">Own pace needs <small>results over a year</small><input id="curPaceMinDrops" type="number" step="1" min="2" style="width:100px"></label>
+        <label class="fld">Own pace capped at <small>levels a year</small><input id="curPaceCap" type="number" step="0.05" min="0.5" style="width:100px"></label>
+        <label class="fld">AAA: flag no update after <small>days</small><input id="curStale" type="number" min="1" style="width:100px"></label>
+      </div>
+      <h3>Projected GCSE grade</h3>
+      <p class="hint">Levels are curriculum stages (Level 7 = Year 7 standard), so each pupil is carried on at their own pace to the end of Year 9 and compared with the Year 9 standard (9S).
+        The grade is read from this table: the most a pupil can be behind, in years, and still be likely to get that grade. Defaults follow the national pattern
+        (DfE KS2&ndash;GCSE transition matrices: at the expected standard at 11 &rarr; median grade 4; about a year behind &rarr; 3; two or more years behind &rarr; 2). Negative means ahead.</p>
+      <div id="gcseMapEd" class="row" style="gap:10px"></div>
+      <h3>Scales</h3>
+      <p class="hint">How FLS steps and GCSE grades sit on the level line (in years). Change these only if your school uses different conversions; everything recalculates.</p>
+      <div class="row">
+        <label class="fld" style="flex:1;min-width:280px">FLS 1&ndash;10 as a developmental age <small>years, comma separated (FLS 1 first)</small><input id="scaleFls" autocomplete="off"></label>
+        <label class="fld" style="flex:1;min-width:280px">GCSE grade U, 1&ndash;9 as a level <small>comma separated (U first). Default: worked out from the table above, so Year 9 projections and Year 10 grades line up</small><input id="scaleGrade" autocomplete="off"></label>
+        <button class="btn ghost" data-act="scale-reset">Reset to defaults</button>
+      </div>
+      <div id="scaleNote"></div>
+      <h3>Subjects</h3>
+      <div id="subjectList" class="tablewrap"></div>
+      <div class="row" style="margin-top:10px">
+        <label class="fld">New subject<input id="suName" placeholder="e.g. Spanish" style="width:200px"></label>
+        <button class="btn" data-act="su-add"><svg class="ic sm"><use href="#i-add"/></svg>Add subject</button>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>AAA pathways</h2>
+      <p class="hint">Bring in pathways and the full log from the old AAA tracker: in that tracker click <strong>Export backup (.json)</strong>, then choose the file here. Pupils are matched by name; anything already imported is skipped.</p>
+      <div class="row"><button class="btn ghost" data-act="aaa-import">Import AAA backup (.json)…</button></div>
+      <input type="file" id="aaaFile" accept=".json,application/json" hidden>
+      <div id="aaaReport"></div>
+    </div>
+    <div class="panel">
+      <h2>Whole-tracker rules</h2>
+      <div class="row" style="margin-top:10px">
+        <label class="fld">Priority pupil: number of concern flags needed<input id="ruleMinConcerns" type="number" min="1" max="6" style="width:90px"></label>
+        <label class="fld">Treat a decline plus one concern as priority<select id="ruleDeclineCounts"><option value="yes">Yes</option><option value="no">No</option></select></label>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Assessment edit panel -->
+<div class="drawerscrim" id="drawerScrim" data-act="drawer-close"></div>
+<div class="passscrim noprint" id="passScrim" hidden>
+  <form class="passbox" id="passForm" autocomplete="off">
+    <h2>Tracker passphrase</h2>
+    <p class="hint" id="passIntro"></p>
+    <label class="fld">Passphrase<input type="password" id="passInput" autocomplete="current-password"></label>
+    <label class="passrem"><input type="checkbox" id="passRemember" checked> Remember it on this computer</label>
+    <p class="hint" style="margin:-4px 0 0">Untick on a shared or classroom computer: you will be asked again next time.</p>
+    <div id="passErr" class="warn bad" hidden></div>
+    <div class="row" style="margin:14px 0 0;justify-content:flex-end"><button type="button" class="btn ghost" id="passCancel">Not now</button><button type="submit" class="btn">Unlock</button></div>
+  </form>
+</div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <header><h2 id="drawerTitle">Edit assessment</h2><button class="iconbtn" data-act="drawer-close" title="Close"><svg class="ic"><use href="#i-close"/></svg></button></header>
+  <div class="dbody" id="drawerBody"></div>
+  <div class="dfoot" id="drawerFoot"></div>
+</aside>
+
+<!-- Data lives in SharePoint Lists, reached through the TrackerAPI flow (see FLOW_URL). -->
+
