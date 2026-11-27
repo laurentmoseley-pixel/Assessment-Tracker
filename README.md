@@ -1,7 +1,7 @@
 # Assessment Tracker and Staff entry
 
 The SLT tracker and the Staff entry file, built from one source, with the test harness and the
-release notes. Current version: **V42.3**.
+release notes. Current version: **V42.4**.
 
 Front page: **https://laurentmoseley-pixel.github.io/Assessment-Tracker/** (`index.html` and `assets/`, served by GitHub Pages from `main`, root).
 
@@ -35,7 +35,7 @@ The Staff entry file differs from the SLT file in exactly four lines: the title,
 |---|---|
 | `src/parts/` | The source. Code is in `d_app.js`; markup and styles are in `b_body.html` and `a_head_css.html`. |
 | `src/parts-41.26/` | The V41.26 original, for comparison, and to seed "saved by V41" data in the tests. |
-| `patches/` | The scripts that turned V41.26 into V42.3, in order. `src/parts/` is the final source. |
+| `patches/` | The scripts that turned V41.26 into V42.4, in order. `src/parts/` is the final source. |
 | `harness/` | The tests: a fake SharePoint and flow, the made-up school, and the suites. |
 | `docs/` | Changelog, the in-school check (TESTING), decisions, the audit report and the overnight audit log. |
 

@@ -1,4 +1,9 @@
-# Assessment Tracker and Staff entry: V42.3
+# Assessment Tracker and Staff entry: V42.4
+
+## V42.4 (27 November 2026)
+
+- **Import units can merge a duplicate unit**, such as the same unit imported twice from EfL under old and new wording. On the duplicate's row, put the UnitId of the unit to keep in the new **Merge into** column. Every pupil's tick moves across first, then the duplicate goes, so nothing ticked is lost. **Export units** now has the column.
+- **Import units puts each qualification's units in the order of the file.**
 
 ## V42.3 (25 November 2026, from a code review of V42.1 and V42.2)
 

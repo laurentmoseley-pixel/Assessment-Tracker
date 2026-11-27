@@ -1,4 +1,4 @@
-# 12-minute check before staff use V42.3
+# 12-minute check before staff use V42.4
 
 You need:
 - the SLT tracker on your laptop
@@ -14,7 +14,7 @@ Every change below is small and you undo it at the end.
 
 1. Copy both new files into **SLT dashboards** and choose **Replace**. Do the same for the Staff entry file in its own folder.
 2. Open the SLT tracker and enter the passphrase.
-   - The menu should say **V42.3**.
+   - The menu should say **V42.4**.
 3. Watch the save chip at the top.
    - It may say **Waiting to send…** for a few seconds the first time. That's the one-time repairs from V42.0 onwards.
    - It should then say **Saved**.
@@ -101,14 +101,14 @@ Wait for **Saved**.
 
 ## If anything fails
 
-Don't give V42.3 to staff. Send me the step number and a screenshot, including the chip and any message.
+Don't give V42.4 to staff. Send me the step number and a screenshot, including the chip and any message.
 
 **Going back to V41.26:**
 
 1. Put your backup files back in place.
-2. Old copies lock once V42.3 has saved. To unlock them:
+2. Old copies lock once V42.4 has saved. To unlock them:
    1. In SharePoint, open the **Settings** list.
    2. Find the item whose SettingKey is **appBuild**.
-   3. Change its SettingValue from `42.3` to `41.26` (or `42.2` to go back only one version).
+   3. Change its SettingValue from `42.4` to `41.26` (or `42.3` to go back only one version).
 
-V42.3 keeps all data in the same lists and columns, so V41.26, V42.1 and V42.2 read everything V42.3 saved. In those versions, GCSE grades are back on Enter levels. It ignores the extra class-list check.
+V42.4 keeps all data in the same lists and columns, so earlier versions read everything V42.4 saved. In those versions, GCSE grades are back on Enter levels. It ignores the extra class-list check.
